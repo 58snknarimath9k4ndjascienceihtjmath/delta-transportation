@@ -689,3 +689,51 @@ a,button,summary,[role="button"],.btn,.copy-number,.mobile-menu,.slide-control,.
 
 /* Keep the wide airport photo fully visible inside the slideshow frame */
 .hero-slideshow .slide:nth-of-type(2){object-fit:contain;background:#20272b}
+
+/* High contrast pickup areas in both automatic themes */
+.area-section{background:#f6f6f3!important;color:#111315!important}
+.area-section .section-head h2{color:#111315!important}
+.area-section .section-head p{color:#4f595d!important}
+.area-section .section-kicker{color:#80620a!important}
+.area-section .area-card{background:#fff!important;color:#111315!important;border-color:#dfe2dc!important}
+.area-section .area-card h3{color:#111315!important}
+.area-section .area-card p{color:#50595d!important}
+.area-section .area-number{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:28px;padding:0 8px;border:1px solid #d3a700;border-radius:999px;background:#f5c323;color:#111315;font:800 11px var(--display);letter-spacing:.04em;flex:0 0 auto}
+.area-section .area-card>.icon{color:#775900!important}
+.area-section .area-note{background:#111315!important;color:#fff!important}
+.area-section .area-note p{color:#e0e3df!important}
+.area-section .area-note strong{color:#fff!important}
+.area-section .area-note>a{color:#f5c323!important}
+:root[data-theme="dark"] .area-section{background:#111314!important;color:#f4f3ee!important}
+:root[data-theme="dark"] .area-section .section-head h2{color:#fff!important}
+:root[data-theme="dark"] .area-section .section-head p{color:#c1c5c3!important}
+:root[data-theme="dark"] .area-section .section-kicker{color:#f5c323!important}
+:root[data-theme="dark"] .area-section .area-card{background:#1d2021!important;color:#f4f3ee!important;border-color:#393c3d!important;box-shadow:0 8px 22px #0003}
+:root[data-theme="dark"] .area-section .area-card h3{color:#fff!important}
+:root[data-theme="dark"] .area-section .area-card p{color:#c1c5c3!important}
+:root[data-theme="dark"] .area-section .area-number{background:#f5c323;color:#111315;border-color:#f5c323}
+:root[data-theme="dark"] .area-section .area-card>.icon{color:#f5c323!important}
+:root[data-theme="dark"] .area-section .area-note{background:#080a0b!important;border:1px solid #36393a}
+
+/* Responsive pickup area cards: desktop, tablet, and narrow phones */
+.area-section .area-grid{grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch}
+.area-section .area-card{min-width:0;gap:12px}
+.area-section .area-card>div{min-width:0}
+.area-section .area-card h3{overflow-wrap:anywhere}
+.area-section .area-airports{grid-column:span 2}
+@media(max-width:920px){
+  .area-section .area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .area-section .area-airports{grid-column:span 2}
+}
+@media(max-width:560px){
+  .area-section{padding:60px 0}
+  .area-section .section-head{margin-bottom:22px}
+  .area-section .area-grid{grid-template-columns:minmax(0,1fr);gap:11px}
+  .area-section .area-card,.area-section .area-airports{grid-column:1;min-height:88px;padding:16px;gap:14px}
+  .area-section .area-card h3{font-size:15px;line-height:1.35;overflow-wrap:normal}
+  .area-section .area-card p{font-size:12px}
+  .area-section .area-number{min-width:36px;height:30px}
+  .area-section .area-note{gap:11px;margin-top:15px;padding:15px}
+  .area-section .area-note p{font-size:12px;line-height:1.6}
+  .area-section .area-note>a{font-size:12px}
+}
