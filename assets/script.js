@@ -67,7 +67,7 @@ phoneButton?.addEventListener('click', async () => {
 });
 
 const revealTargets = document.querySelectorAll(
-  '.hero-copy, .hero-visual, .section-head, .step-card, .service-card, .faq-item, .contact-card'
+  '.hero-copy, .hero-visual, .section-head, .step-card, .service-card, .faq-item, .contact-card, .home-review-carousel, .home-reviews .review-privacy'
 );
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
