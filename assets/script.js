@@ -14,6 +14,39 @@ nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => 
 }));
 
 menu?.setAttribute('aria-controls', 'nav');
+// Interactive star rating works on both hosted pages and local file previews.
+const ratingGroup = document.getElementById('starRatingGroup');
+const ratingButtons = [...(ratingGroup?.querySelectorAll('[data-stars]') || [])];
+const ratingValue = document.getElementById('reviewStars');
+const ratingMessage = document.getElementById('formMessage');
+function chooseRating(button) {
+  const value = Number(button.dataset.stars);
+  if (!ratingValue || !value) return;
+  ratingValue.value = String(value);
+  ratingButtons.forEach((star, index) => {
+    const selected = Number(star.dataset.stars) === value;
+    star.setAttribute('aria-checked', String(selected));
+    star.classList.toggle('is-lit', Number(star.dataset.stars) <= value);
+    star.tabIndex = selected ? 0 : -1;
+  });
+  if (ratingMessage) ratingMessage.textContent = '';
+}
+ratingButtons.forEach((button, index) => {
+  button.tabIndex = index === 0 ? 0 : -1;
+  button.addEventListener('click', () => chooseRating(button));
+  button.addEventListener('keydown', event => {
+    let next = index;
+    if (event.key === 'ArrowRight' || event.key === 'ArrowUp') next = Math.min(ratingButtons.length - 1, index + 1);
+    else if (event.key === 'ArrowLeft' || event.key === 'ArrowDown') next = Math.max(0, index - 1);
+    else if (event.key === 'Home') next = 0;
+    else if (event.key === 'End') next = ratingButtons.length - 1;
+    else return;
+    event.preventDefault();
+    const nextButton = ratingButtons[next];
+    chooseRating(nextButton);
+    nextButton.focus();
+  });
+});
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && nav?.classList.contains('open')) {
     nav.classList.remove('open');
